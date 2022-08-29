@@ -1,5 +1,8 @@
 #!/bin/sh
 
-cd $1 | ls -l | grep "^-"
+
+cd
+cd $1
+ls *.?
 
 exit 0

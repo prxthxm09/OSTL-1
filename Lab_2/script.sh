@@ -1,3 +1,4 @@
+
 echo the name of this script is $0
 echo the first argument is $1
 echo a list of all the arguments is $*
