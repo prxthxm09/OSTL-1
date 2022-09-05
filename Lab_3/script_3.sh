@@ -17,17 +17,20 @@ fi
 
 case $option in
 	"0")
-	r=$((-b/2*a))
+	r=$((-1*b/2*a))
 	echo "The roots are real and equal: $r $r"
 	;;
 	"1")
 	r=$((-b/2*a))
-	im=$((sqrt(-$disc)/2*a))
-	echo "The roots are imaginary, Real part is $r , Imaginary part is $im"
+	disc=$((-1 * $disc))
+	calc=$(echo "sqrt($disc)" | bc)
+	im=$((calc/2*a))
+	echo "The roots are imaginary, Real part is $r $r , Imaginary part is $im $((-1*$im))"
 	;;
 	"2")
-	n1=`expr -b - sqrt($disc)`
-	n2=`expr -b + sqrt($disc)`
+	calc=$(echo "sqrt($disc)" | bc)
+	n1=$((-$b+$calc))
+	n2=$((-$b-$calc))
 	r1=$((n1/2*a))
 	r2=$((n2/2*a))
 	echo "The roots are real and distinct: $r1 $r2"
